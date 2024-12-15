@@ -1,0 +1,25 @@
+The solution involves understanding and adjusting CSS specificity.  Instead of relying on `!important`, refactor the CSS to ensure the desired styles are applied with more specific and well-structured selectors.
+
+```css
+div {
+  font-size: 16px;
+}
+
+.container div {
+  font-size: 18px;
+}
+
+.container p {
+  font-size: 14px;
+}
+
+.container p:first-of-type {
+  font-size: 20px;
+}
+
+.container .special-paragraph {
+  font-size: 12px;
+}
+```
+
+By adding a class `special-paragraph` to the `<p>` element within the `<div>`, we create a more specific selector to target that element precisely. This avoids the need for `!important` and improves CSS maintainability and readability.
