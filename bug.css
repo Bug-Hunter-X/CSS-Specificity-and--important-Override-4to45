@@ -1,0 +1,25 @@
+The following CSS code snippet demonstrates an uncommon error related to specificity and inheritance:
+
+```css
+div {
+  font-size: 16px;
+}
+
+.container div {
+  font-size: 18px !important;
+}
+
+.container p {
+  font-size: 14px;
+}
+
+.container p:first-of-type {
+  font-size: 20px;
+}
+
+.container div p {
+  font-size: 12px;
+}
+```
+
+The issue arises when trying to style a `<p>` element nested inside a `<div>` within a `.container`. The `!important` declaration might seem to guarantee that the `<div>`'s font size remains 18px. However, the specificity of `.container div p` is higher than `.container div`, thus overriding the `!important` declaration.
